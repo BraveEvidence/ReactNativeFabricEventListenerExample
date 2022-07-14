@@ -33,4 +33,4 @@ public class MyButtonView extends androidx.appcompat.widget.AppCompatButton {
 
     }
 }
-//Not sure what to pass targetTag, canCoalesceEvent, customCoalesceKey and category in receiveEvent
+
