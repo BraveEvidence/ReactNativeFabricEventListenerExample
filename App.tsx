@@ -73,7 +73,7 @@ const App = () => {
         style={backgroundStyle}>
         <MyButtonView
           style={{height: 100, width: 100, margin: 20}}
-          clickHandler={(value: any) => {
+          onClickHandler={(value: any) => {
             console.log(value);
           }}
           text="Hello"

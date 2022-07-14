@@ -3,9 +3,12 @@ package com.myappfabriceg.newarchitecture.components;
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
+
+import java.util.Map;
 
 public class MyButtonViewManager extends SimpleViewManager<MyButtonView> {
 
@@ -33,6 +36,15 @@ public class MyButtonViewManager extends SimpleViewManager<MyButtonView> {
         view.setText(text);
     }
 
+    public Map getExportedCustomBubblingEventTypeConstants() {
+        return MapBuilder.builder().put(
+                "topChange",
+                MapBuilder.of(
+                        "phasedRegistrationNames",
+                        MapBuilder.of("bubbled", "onClickHandler")
+                )
+        ).build();
+    }
 }
 
 //  clickHandler?: DirectEventHandler<Event>;
