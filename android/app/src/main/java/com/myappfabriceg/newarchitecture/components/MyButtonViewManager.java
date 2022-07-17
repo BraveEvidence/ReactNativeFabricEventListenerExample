@@ -1,6 +1,9 @@
 package com.myappfabriceg.newarchitecture.components;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.common.MapBuilder;
@@ -36,15 +39,37 @@ public class MyButtonViewManager extends SimpleViewManager<MyButtonView> {
         view.setText(text);
     }
 
-    public Map getExportedCustomBubblingEventTypeConstants() {
-        return MapBuilder.builder().put(
-                "topChange",
-                MapBuilder.of(
-                        "phasedRegistrationNames",
-                        MapBuilder.of("bubbled", "onClickHandler")
-                )
-        ).build();
+//    @Override
+//    public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
+//        return MapBuilder.of(
+//                "topChange",
+//                MapBuilder.of(
+//                        "phasedRegistrationNames",
+//                        "onClickHandler"
+//                )
+//        );
+//    }
+
+//    @Nullable
+//    @Override
+//    public Map<String, Object> getExportedCustomBubblingEventTypeConstants() {
+//        return MapBuilder.of(
+//                "topChange",
+//                MapBuilder.of(
+//                        "phasedRegistrationNames",
+//                        "onClickHandler"
+//                )
+//        );
+//    }
+
+    @Nullable
+    @Override
+    public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
+        Log.i("here55","999999");
+        return MapBuilder.of("onClickHandler",
+                MapBuilder.of("registrationName", "onClickHandler")
+        );
     }
+
 }
 
-//  clickHandler?: DirectEventHandler<Event>;
