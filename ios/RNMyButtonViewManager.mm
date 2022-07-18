@@ -15,5 +15,6 @@
 
 RCT_EXPORT_MODULE(MyButtonView)
 RCT_EXPORT_VIEW_PROPERTY(text, NSString)
+RCT_EXPORT_VIEW_PROPERTY(onClickHandler, RCTDirectEventBlock);
 
 @end

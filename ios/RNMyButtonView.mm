@@ -51,10 +51,28 @@ using namespace facebook::react;
       [_button.bottomAnchor constraintEqualToAnchor:_view.bottomAnchor],
     ]];
     
+//    [_button setHighlighted:YES];
+//    [_button sendActionsForControlEvents:UIControlEventTouchUpInside];
+//    [_button performSelector:@selector(setHighlighted:) withObject:NO afterDelay:0];
+//    [_button performSelector:@selector(setHighlighted)];
+    [_button addTarget:self
+                 action:@selector(setHighlighted)
+       forControlEvents:UIControlEventTouchUpInside];
     self.contentView = _view;
   }
   
   return self;
+}
+
+-(void)setHighlighted
+{
+   // do stuff
+  
+  if (_eventEmitter != nullptr) {
+    
+//     std::dynamic_pointer_cast<const facebook::react::RNSScreenEventEmitter>(_eventEmitter)
+//         ->onWillAppear(facebook::react::RNSScreenEventEmitter::OnWillAppear{});
+   }
 }
 
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps

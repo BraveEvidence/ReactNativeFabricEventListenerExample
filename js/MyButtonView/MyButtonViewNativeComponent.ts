@@ -11,7 +11,7 @@ type Event = Readonly<{
 
 interface NativeProps extends ViewProps {
   text: string;
-  onClickHandler?: BubblingEventHandler<Event>; ////Event name should start with on
+  onClickHandler?: DirectEventHandler<Event>; ////Event name should start with on
 }
 
 export default codegenNativeComponent<NativeProps>(
