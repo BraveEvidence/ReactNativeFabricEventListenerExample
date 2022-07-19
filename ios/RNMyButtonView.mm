@@ -72,7 +72,6 @@ using namespace facebook::react;
     
     std::dynamic_pointer_cast<const facebook::react::MyButtonViewEventEmitter>(_eventEmitter)->onClickHandler(facebook::react::MyButtonViewEventEmitter::OnClickHandler{
       .text = "Hello Pritish"
-//      .text = std::make_shared<std::string>("Marius")
     });
   }
 }
