@@ -65,7 +65,9 @@ public class MyButtonViewManager extends SimpleViewManager<MyButtonView> {
     @Nullable
     @Override
     public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
-        Log.i("here55","999999");
+//        return MapBuilder.of("onClickHandler",
+//                MapBuilder.of("registrationName", "onClickHandler")
+//        );
         return MapBuilder.of("onClickHandler",
                 MapBuilder.of("registrationName", "onClickHandler")
         );

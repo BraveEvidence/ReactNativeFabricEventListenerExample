@@ -10,6 +10,11 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.uimanager.events.RCTModernEventEmitter;
+import com.facebook.react.uimanager.UIManagerHelper;
+import com.facebook.react.uimanager.UIManagerModule;
+import com.facebook.react.uimanager.events.EventCategoryDef;
+import com.facebook.react.uimanager.events.EventDispatcher;
+import com.facebook.react.views.slider.ReactSlidingCompleteEvent;
 
 public class MyButtonView extends androidx.appcompat.widget.AppCompatButton {
 
@@ -21,28 +26,33 @@ public class MyButtonView extends androidx.appcompat.widget.AppCompatButton {
     private void configureViews(){
         setBackgroundColor(Color.YELLOW);
         setOnClickListener(view -> {
-            Log.i("here55","123");
-            onReceiveNativeEvent();
+//            Log.i("here55","123");
+//            onReceiveNativeEvent();
+            ReactContext reactContext = (ReactContext)getContext();
+            EventDispatcher eventDispatcher = UIManagerHelper.getEventDispatcherForReactTag(
+                    reactContext ,getId()
+            );
+            eventDispatcher.dispatchEvent(new MyButtonClickEvent(getId()));
         });
     }
 
-    public void onReceiveNativeEvent() {
-        Log.i("here55","678");
-        WritableMap event = Arguments.createMap();
-        Log.i("here55","1111");
-        event.putString("message", "MyMessage");
-        Log.i("here55","2222");
-        ReactContext reactContext = (ReactContext)getContext();
-        Log.i("here55","3333");
-        reactContext.getJSModule(RCTEventEmitter.class)
-                .receiveEvent(getId(),"onClickHandler",null);
-        Log.i("here55","4444");
+//    public void onReceiveNativeEvent() {
+//        Log.i("here55","678");
+//        WritableMap event = Arguments.createMap();
+//        Log.i("here55","1111");
+//        event.putString("message", "MyMessage");
+//        Log.i("here55","2222");
+//        ReactContext reactContext = (ReactContext)getContext();
+//        Log.i("here55","3333");
 //        reactContext.getJSModule(RCTEventEmitter.class)
-//                .receiveEvent(getId(),"topChange",event);
-//        reactContext.getJSModule(RCTModernEventEmitter.class)
-//                .receiveEvent(getId(),getId(),"topChange",true,0,event,1);
-
-    }
+//                .receiveEvent(getId(),"onClickHandler",null);
+//        Log.i("here55","4444");
+////        reactContext.getJSModule(RCTEventEmitter.class)
+////                .receiveEvent(getId(),"topChange",event);
+////        reactContext.getJSModule(RCTModernEventEmitter.class)
+////                .receiveEvent(getId(),getId(),"topChange",true,0,event,1);
+//
+//    }
 }
 
 
