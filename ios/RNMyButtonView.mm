@@ -70,8 +70,7 @@ using namespace facebook::react;
   
   if (_eventEmitter != nullptr) {
     
-//     std::dynamic_pointer_cast<const facebook::react::RNSScreenEventEmitter>(_eventEmitter)
-//         ->onWillAppear(facebook::react::RNSScreenEventEmitter::OnWillAppear{});
+    std::dynamic_pointer_cast<const facebook::react::MyButtonViewEventEmitter>(_eventEmitter)->onClickHandler(facebook::react::MyButtonViewEventEmitter::OnClickHandler{});
    }
 }
 
