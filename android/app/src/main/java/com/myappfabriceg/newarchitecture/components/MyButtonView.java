@@ -26,8 +26,6 @@ public class MyButtonView extends androidx.appcompat.widget.AppCompatButton {
     private void configureViews(){
         setBackgroundColor(Color.YELLOW);
         setOnClickListener(view -> {
-//            Log.i("here55","123");
-//            onReceiveNativeEvent();
             ReactContext reactContext = (ReactContext)getContext();
             EventDispatcher eventDispatcher = UIManagerHelper.getEventDispatcherForReactTag(
                     reactContext ,getId()

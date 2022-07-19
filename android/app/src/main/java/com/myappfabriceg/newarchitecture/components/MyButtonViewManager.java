@@ -39,35 +39,10 @@ public class MyButtonViewManager extends SimpleViewManager<MyButtonView> {
         view.setText(text);
     }
 
-//    @Override
-//    public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
-//        return MapBuilder.of(
-//                "topChange",
-//                MapBuilder.of(
-//                        "phasedRegistrationNames",
-//                        "onClickHandler"
-//                )
-//        );
-//    }
-
-//    @Nullable
-//    @Override
-//    public Map<String, Object> getExportedCustomBubblingEventTypeConstants() {
-//        return MapBuilder.of(
-//                "topChange",
-//                MapBuilder.of(
-//                        "phasedRegistrationNames",
-//                        "onClickHandler"
-//                )
-//        );
-//    }
 
     @Nullable
     @Override
     public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
-//        return MapBuilder.of("onClickHandler",
-//                MapBuilder.of("registrationName", "onClickHandler")
-//        );
         return MapBuilder.of("topOnClickHandler",
                 MapBuilder.of("registrationName", "onClickHandler")
         );

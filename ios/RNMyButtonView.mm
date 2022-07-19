@@ -18,7 +18,7 @@
 using namespace facebook::react;
 
 @interface RNMyButtonView () <RCTMyButtonViewViewProtocol>
- 
+
 @end
 
 @implementation RNMyButtonView {
@@ -40,7 +40,7 @@ using namespace facebook::react;
     _view = [[UIView alloc] init];
     _view.backgroundColor = [UIColor redColor];
     _button = [[UIButton alloc] init];
-//    _label.text = @"Initial value";
+    //    _label.text = @"Initial value";
     [_view addSubview:_button];
     
     _button.translatesAutoresizingMaskIntoConstraints = false;
@@ -51,13 +51,13 @@ using namespace facebook::react;
       [_button.bottomAnchor constraintEqualToAnchor:_view.bottomAnchor],
     ]];
     
-//    [_button setHighlighted:YES];
-//    [_button sendActionsForControlEvents:UIControlEventTouchUpInside];
-//    [_button performSelector:@selector(setHighlighted:) withObject:NO afterDelay:0];
-//    [_button performSelector:@selector(setHighlighted)];
+    //    [_button setHighlighted:YES];
+    //    [_button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    //    [_button performSelector:@selector(setHighlighted:) withObject:NO afterDelay:0];
+    //    [_button performSelector:@selector(setHighlighted)];
     [_button addTarget:self
-                 action:@selector(setHighlighted)
-       forControlEvents:UIControlEventTouchUpInside];
+                action:@selector(setHighlighted)
+      forControlEvents:UIControlEventTouchUpInside];
     self.contentView = _view;
   }
   
@@ -66,12 +66,15 @@ using namespace facebook::react;
 
 -(void)setHighlighted
 {
-   // do stuff
+  // do stuff
   
   if (_eventEmitter != nullptr) {
     
-    std::dynamic_pointer_cast<const facebook::react::MyButtonViewEventEmitter>(_eventEmitter)->onClickHandler(facebook::react::MyButtonViewEventEmitter::OnClickHandler{});
-   }
+    std::dynamic_pointer_cast<const facebook::react::MyButtonViewEventEmitter>(_eventEmitter)->onClickHandler(facebook::react::MyButtonViewEventEmitter::OnClickHandler{
+      .text = "Hello Pritish"
+//      .text = std::make_shared<std::string>("Marius")
+    });
+  }
 }
 
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
