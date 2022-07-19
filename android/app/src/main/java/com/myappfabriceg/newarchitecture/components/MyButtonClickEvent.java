@@ -31,9 +31,4 @@ public class MyButtonClickEvent extends Event<MyButtonClickEvent> {
         event.putString("message", "MyMessage");
         return event;
     }
-
-//    @Override
-//    public short getCoalescingKey() {
-//        return 0;
-//    }
 }
