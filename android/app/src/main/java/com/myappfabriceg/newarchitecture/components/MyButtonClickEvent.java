@@ -15,7 +15,7 @@ public class MyButtonClickEvent extends Event<MyButtonClickEvent> {
 
     @Override
     public String getEventName() {
-        return "onClickHandler";
+        return "topOnClickHandler";
     }
 
     @Override
@@ -27,7 +27,9 @@ public class MyButtonClickEvent extends Event<MyButtonClickEvent> {
     @Nullable
     @Override
     protected WritableMap getEventData() {
-        return super.getEventData();
+        WritableMap event = Arguments.createMap();
+        event.putString("message", "MyMessage");
+        return event;
     }
 
 //    @Override

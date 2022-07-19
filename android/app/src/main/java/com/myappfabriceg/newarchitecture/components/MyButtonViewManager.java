@@ -68,7 +68,7 @@ public class MyButtonViewManager extends SimpleViewManager<MyButtonView> {
 //        return MapBuilder.of("onClickHandler",
 //                MapBuilder.of("registrationName", "onClickHandler")
 //        );
-        return MapBuilder.of("onClickHandler",
+        return MapBuilder.of("topOnClickHandler",
                 MapBuilder.of("registrationName", "onClickHandler")
         );
     }
